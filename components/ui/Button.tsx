@@ -1,7 +1,7 @@
 import { Colors } from "@/constants/Colors";
 import { theme } from "@/constants/theme";
 import React from "react";
-import { ActivityIndicator, Pressable, StyleSheet, Text } from "react-native";
+import { ActivityIndicator, Pressable, StyleSheet, Text, TextStyle, ViewStyle } from "react-native";
 
 
 type ButtonProps ={
@@ -10,6 +10,8 @@ type ButtonProps ={
     variant?: 'primary' | 'secondary' | 'text';
     loading?: boolean;
     disabled?: boolean;
+    style?:ViewStyle;
+    textStyle?: TextStyle;
 };
 
 export const Button = ({

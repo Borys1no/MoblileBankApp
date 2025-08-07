@@ -1,50 +1,65 @@
-import { Colors } from "@/constants/Colors";
-import { theme } from "@/constants/theme";
-import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
+import { Button } from '@/components/ui/Button';
+import { Colors } from '@/constants/Colors';
+import { theme } from '@/constants/theme';
+import { StyleSheet, Text, TextInput, View } from 'react-native';
 
-export default function LoginScreen(){
-    return(
-        <View style={styles.container}>
-            <Text style={styles.title}>Iniciar Sesion</Text>
 
-            <TextInput
-            placeholder="Correo electronico"
-            style={styles.input}
-            keyboardType="email-address"
-            />
-            <TextInput
-            placeholder="Contraseña"
-            style={styles.input}
-            secureTextEntry
-            />
-            <Pressable
-            style={styles.button}>
-                <Text style={styles.buttonText}>
-                    Ingresar
-                    
-                </Text>
+export default function LoginScreen() {
+  const handleLogin = () => {
+    console.log('Iniciar sesión');
+  };
 
-            </Pressable>
+  return (
+    <View style={styles.container}>
+        <Text style={styles.title}>
+            Iniciar Sesion
+        </Text>
 
-        </View>
-    );
+        <TextInput
+        placeholder='Correo electronico'
+        style={styles.input}
+        keyboardType='email-address'
+        />
+        <TextInput
+        placeholder='Contraseña'
+        style={styles.input}
+        secureTextEntry
+        />
+      <Button 
+        title="Ingresar" 
+        onPress={handleLogin} 
+        variant="primary"
+      />
+      
+      <Button
+        title="Registrarse"
+        onPress={() => {}}
+        variant="secondary"
+        style={{ marginTop: 10 }}
+      />
+      
+      <Button
+        title="Olvidé mi contraseña"
+        onPress={() => {}}
+        variant="text"
+      />
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
     container:{
-        flex: 1,
-        justifyContent: 'center',
+        flex:1,
+        justifyContent:'center',
         padding:theme.spacing.large,
-        backgroundColor: Colors.background,
-
+        backgroundColor:Colors.white,
     },
     title:{
-        fontFamily:theme.fonts.bold,
-        fontSize: 24,
-        color:Colors.text,
+        fontFamily: theme.fonts.bold,
+        fontSize:24,
+        color: Colors.text,
         marginBottom: theme.spacing.large,
-        textAlign: 'center',
-
+        textAlign:'center',
     },
     input:{
         borderWidth: 1,
@@ -52,20 +67,6 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         padding: theme.spacing.medium,
         marginBottom: theme.spacing.medium,
-        fontFamily: theme.fonts.regular,
-    },
-
-    button:{
-        backgroundColor: Colors.primary,
-        padding: theme.spacing.medium,
-        borderRadius: 8,
-        marginTop:theme.spacing.small,
-    },
-    buttonText:{
-        color: Colors.white,
-        fontFamily: theme.fonts.bold,
-        textAlign: 'center',
-        fontSize:16,
-    },
-});
-
+        fontFamily: theme.fonts.regular
+    }
+})
