@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/Button';
 import { Colors } from '@/constants/Colors';
 import { theme } from '@/constants/theme';
+import { router } from 'expo-router';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
 
 
@@ -27,14 +28,14 @@ export default function LoginScreen() {
         />
       <Button 
         title="Ingresar" 
-        onPress={handleLogin} 
+        onPress={() => router.push('/home')} 
         variant="primary"
       />
       
       <Button
         title="Registrarse"
-        onPress={() => {}}
-        variant="secondary"
+        onPress={() => router.push('/register')}
+        variant="text"
         style={{ marginTop: 10 }}
       />
       
@@ -52,7 +53,7 @@ const styles = StyleSheet.create({
         flex:1,
         justifyContent:'center',
         padding:theme.spacing.large,
-        backgroundColor:Colors.white,
+        backgroundColor:Colors.background,
     },
     title:{
         fontFamily: theme.fonts.bold,
